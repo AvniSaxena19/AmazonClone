@@ -8,11 +8,8 @@ import img6 from '../../assets/img6.jpg';
 import img7 from '../../assets/img7.jpg';
 import img8 from '../../assets/img8.jpg';
 
-
-
-
 const Body = () => {
-  const images = [img1,img2,img3,img4,img5,img6,img7,img8]; // Array of images
+  const images = [img1, img2, img3, img4, img5, img6, img7, img8]; // Array of images
 
   const [currentIndex, setCurrentIndex] = useState(0); // Initial index set to 0
 
@@ -27,7 +24,7 @@ const Body = () => {
   };
 
   return (
-    <div className="relative w-full h-screen"> {/* Full screen container */}
+    <div className="relative w-full h-[85vh]"> {/* Reduce the height slightly */}
       {/* Display current image */}
       <div className="overflow-hidden w-full h-full">
         <div className="flex transition-all duration-500 ease-in-out w-full h-full">
