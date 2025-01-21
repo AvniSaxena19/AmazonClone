@@ -31,7 +31,7 @@ const CardsSection = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-8 px-4 py-6 bg-gray-100 absolute botto-0 left-0 right-0 p-4 -10">
+    <div className="flex flex-col gap-8 px-4 py-6 bg-gray-100 ">
       {cards.map((card, index) => (
         <div key={index} className="bg-white rounded-lg shadow-md p-6">
           {/* Card Title */}
