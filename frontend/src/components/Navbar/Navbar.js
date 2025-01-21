@@ -1,4 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Language from "../Language/Language"
+import SignInDropdown from "../SignInDropdown/SignInDropdown";
+
 
 const Navbar = () => {
   return (
@@ -27,13 +31,18 @@ const Navbar = () => {
           🔍
         </button>
       </div>
+      <Language/>
 
       {/* Links */}
       <div className="flex items-center space-x-6">
+      {/* <Link to="/SignUp" className="text-gray-300 hover:text-white">
         <div className="text-sm text-center cursor-pointer">
           <p className="text-gray-300">Hello, Sign in</p>
           <p className="font-bold">Account & Lists</p>
         </div>
+        </Link> */}
+        <SignInDropdown/>
+
         <div className="text-sm text-center cursor-pointer">
           <p className="text-gray-300">Returns</p>
           <p className="font-bold">& Orders</p>
@@ -43,11 +52,13 @@ const Navbar = () => {
           <p className="font-bold">Prime</p>
         </div>
         <div className="flex items-center cursor-pointer">
-          🛒
-          <span className="ml-2 bg-yellow-500 text-black rounded-full px-2 text-xs font-bold">
-            0
-          </span>
-        </div>
+         <Link to="/Cart" > {/* Wrap cart icon with Link */}
+    🛒
+    <span className="ml-2 bg-yellow-500 text-black rounded-full px-2 text-xs font-bold">
+      0
+    </span>
+  </Link>
+</div>
       </div>
     </nav>
   );

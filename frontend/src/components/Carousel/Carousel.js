@@ -8,7 +8,7 @@ import img6 from '../../assets/img6.jpg';
 import img7 from '../../assets/img7.jpg';
 import img8 from '../../assets/img8.jpg';
 
-const Body = () => {
+const Carousel = () => {
   const images = [img1, img2, img3, img4, img5, img6, img7, img8]; // Array of images
 
   const [currentIndex, setCurrentIndex] = useState(0); // Initial index set to 0
@@ -55,4 +55,4 @@ const Body = () => {
   );
 };
 
-export default Body;
+export default Carousel;
