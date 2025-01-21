@@ -10,7 +10,7 @@ const SignInDropdown = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
- <div className="cursor-pointer p-2 bg-black rounded hover:white flex items-center hover:border-2 hover:border-white ">
+ <div className="cursor-pointer p-2 bg-grey-900 rounded hover:white flex items-center hover:border-2 hover:border-white ">
         Hello, Sign in  <br></br>Accounts & lists
           <FaCaretDown />
         </div>

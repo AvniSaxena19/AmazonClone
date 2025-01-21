@@ -1,4 +1,6 @@
 import React from "react";
+import { BsCart3 } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const sections = [
@@ -37,8 +39,12 @@ const Footer = () => {
     },
   ];
 
+
+
   return (
     <footer className="bg-gray-900 text-white py-10 px-6">
+
+
       {/* Top Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {sections.map((section, index) => (
@@ -61,28 +67,51 @@ const Footer = () => {
       {/* Divider */}
       <div className="border-t border-gray-700 mt-8"></div>
 
-      {/* Bottom Section */}
-      {/* <div className="flex flex-col md:flex-row justify-between items-center mt-6 text-gray-400 text-sm">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-          alt="Amazon Logo"
-          className="w-24 mb-4 md:mb-0"
-        />
-        <div className="flex space-x-4 items-center">
-          <button className="bg-gray-800 text-white px-3 py-1 rounded-md">
-            English
-          </button>
-          <button className="bg-gray-800 text-white px-3 py-1 rounded-md">
-            India
-          </button>
+      {/* Logo Section */}
+      <div className="flex justify-center items-center mt-6">
+        <Link to="/">
+          <img
+            src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" // Amazon logo from PNGimg
+            alt="Amazon Logo"
+            className="w-28 cursor-pointer"
+          />
+        </Link>
+      </div>
+
+      {/* Bottom Section (Amazon-Style) */}
+      <div className="bg-gray-800 text-gray-400 py-6 px-4 mt-8">
+        <div className="flex justify-center space-x-8 flex-wrap">
+          <div>
+            <h4 className="font-bold mb-2">AbeBooks</h4>
+            <p className="text-sm">Books, art & collectibles</p>
+          </div>
+          <div>
+            <h4 className="font-bold mb-2">Amazon Web Services</h4>
+            <p className="text-sm">Scalable Cloud Computing Services</p>
+          </div>
+          <div>
+            <h4 className="font-bold mb-2">Amazon Business</h4>
+            <p className="text-sm">Everything For Your Business</p>
+          </div>
+          <div>
+            <h4 className="font-bold mb-2">Audible</h4>
+            <p className="text-sm">Download Audio Books</p>
+          </div>
+          <div>
+            <h4 className="font-bold mb-2">IMDb</h4>
+            <p className="text-sm">Movies, TV & Celebrities</p>
+          </div>
+          <div>
+            <h4 className="font-bold mb-2">Amazon Prime Music</h4>
+            <p className="text-sm">
+              100 million songs, ad-free <br /> Over 15 million podcast episodes
+            </p>
+          </div>
         </div>
-      </div> */}
+      </div>
 
-
-      
-
-  {/* Links and Copyright */}
-  <div className="mt-6 text-center text-gray-400 text-xs">
+      {/* Links and Copyright */}
+      <div className="mt-6 text-center text-gray-400 text-xs">
         <div className="space-x-4">
           <a
             href="#"
