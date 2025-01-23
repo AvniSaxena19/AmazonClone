@@ -8,7 +8,7 @@ import Home from "./pages/home";
 import LoginPage from "./components/LoginPage/LoginPage";
 import Signup from "./components/SignUp/SignUp";
 import Profile from "./components/profile";
-
+import Auth from "./components/auth/Auth";
 
 function layout(element) {
   return (
@@ -27,10 +27,13 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={layout(<Home />)} />
-          <Route path="/cart" element={layout(<Cart />)} />
-          <Route path="/SignUp" element={<Signup/>} />
-          <Route path="/Login" element={(<LoginPage />)} />
-          <Route path="/profile" element={<Profile/>} />
+
+          <Route path="/SignUp" element={<Signup />} />
+          <Route path="/Login" element={<LoginPage />} />
+          <Route element={<Auth />}>
+            <Route path="/cart" element={layout(<Cart />)} />
+            <Route path="/profile" element={layout(<Profile />)} />
+          </Route>
         </Routes>
       </div>
     </Router>

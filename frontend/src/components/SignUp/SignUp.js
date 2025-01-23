@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { setUser} from "../../utility/authSlice";
+import { useDispatch } from "react-redux";
+import { loggedInUser } from "../../utility/userSlice";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -11,14 +14,17 @@ const Signup = () => {
   console.log(password);
   const [name, setName] = useState("");
   console.log(name);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/login", { name, password })
+      .post("http://localhost:5000/login", { email:name, password })
       .then((res) => {
         console.log(res);
-        navigate("/profile");
+        dispatch(loggedInUser(true));
+        dispatch(setUser(name));
+        navigate("/Profile");
       })
       .catch((err) => {
         const errMsg = err?.response?.data?.message || "Something went wrong";

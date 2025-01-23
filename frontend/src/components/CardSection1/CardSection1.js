@@ -1,13 +1,19 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/cartSlice";
+import { addToCart } from "../../utility/cartSlice";
 import haier from "../../assets/haier.jpg";
 import havells from "../../assets/havells.jpg";
 import faber from "../../assets/faber.jpg";
 import havells1 from "../../assets/havells1.jpg";
+import { setUser } from "../../utility/authSlice";
+import { useNavigate, usenavigate } from "react-router-dom";
+import { loggedInUser } from "../../utility/userSlice";
+
+
 
 const CardSection1 = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const products = [
     {
@@ -16,7 +22,7 @@ const CardSection1 = () => {
         "India's First Water Heater with No Heating Element | Minimal Scaling",
       rating: 4.5,
       reviews: "465",
-      price: "₹16,150",
+      price: 16150,
       discount: "-46%",
       originalPrice: "₹29,990",
       deliveryDate: "Sunday, January 19",
@@ -30,7 +36,7 @@ const CardSection1 = () => {
         "Storage Water Heater | Heating Indicator | 8 Bar Pressure | ABS Body",
       rating: 4.0,
       reviews: "9",
-      price: "₹11,990",
+      price: 16150,
       discount: "-29%",
       originalPrice: "₹16,990",
       deliveryDate: "Sunday, January 19",
@@ -43,7 +49,7 @@ const CardSection1 = () => {
       description: "5 Star Rated | Temp Sensing LED Knob | Anti-Rust Design",
       rating: 4.3,
       reviews: "572",
-      price: "₹13,300",
+      price: 16150,
       discount: "-31%",
       originalPrice: "₹19,315",
       deliveryDate: "Sunday, January 19",
@@ -56,7 +62,7 @@ const CardSection1 = () => {
       description: "Adjustable Storage Water Geyser | Free Installation",
       rating: 4.6,
       reviews: "2,321",
-      price: "₹11,950",
+      price: 16150,
       discount: "-44%",
       originalPrice: "₹21,400",
       deliveryDate: "Monday, January 20",
@@ -70,7 +76,7 @@ const CardSection1 = () => {
         "India's First Water Heater with No Heating Element | Minimal Scaling",
       rating: 4.5,
       reviews: "465",
-      price: "₹16,150",
+      price: 16150,
       discount: "-46%",
       originalPrice: "₹29,990",
       deliveryDate: "Sunday, January 19",
@@ -84,7 +90,7 @@ const CardSection1 = () => {
         "Storage Water Heater | Heating Indicator | 8 Bar Pressure | ABS Body",
       rating: 4.0,
       reviews: "9",
-      price: "₹11,990",
+      price: 16150,
       discount: "-29%",
       originalPrice: "₹16,990",
       deliveryDate: "Sunday, January 19",
@@ -97,7 +103,7 @@ const CardSection1 = () => {
       description: "5 Star Rated | Temp Sensing LED Knob | Anti-Rust Design",
       rating: 4.3,
       reviews: "572",
-      price: "₹13,300",
+      price: 16150,
       discount: "-31%",
       originalPrice: "₹19,315",
       deliveryDate: "Sunday, January 19",
@@ -110,7 +116,7 @@ const CardSection1 = () => {
       description: "Adjustable Storage Water Geyser | Free Installation",
       rating: 4.6,
       reviews: "2,321",
-      price: "₹11,950",
+      price: 16150,
       discount: "-44%",
       originalPrice: "₹21,400",
       deliveryDate: "Monday, January 20",
@@ -119,6 +125,10 @@ const CardSection1 = () => {
       
     },
   ];
+
+  const handleAddItem = (product)=>{
+    loggedInUser? dispatch(addToCart(product) ): navigate("/SignUp")
+  }
 
   return (
     <div className="bg-gray-100 px-4 py-6">
@@ -146,7 +156,8 @@ const CardSection1 = () => {
             <p className="text-sm text-green-600">Get it by {product.deliveryDate}</p>
             <button
               className="mt-4 w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition"
-              onClick={() => dispatch(addToCart(product))}
+              
+              onClick={() => handleAddItem(product)}
             >
               Add to Cart
 

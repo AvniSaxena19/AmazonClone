@@ -1,13 +1,25 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart, addToCart, increaseItem, decreaseItem } from "../../redux/cartSlice";
+import {
+  removeFromCart,
+  addToCart,
+  increaseItem,
+  decreaseItem,
+} from "../../utility/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const loggedInUser = useSelector((state) => state.user.user);
 
+  console.log(loggedInUser)
   const handleToggle = (id) => {
-    console.log(`Toggled item with ID: ${id}`);
+
+    loggedInUser
+      ? console.log(`Toggled item with ID: ${id}`)
+      : navigate("/SignUp");
   };
   const decrementQuantity = (id) => {
     dispatch(decreaseItem(id)); // Adjust for quantity logic in `cartSlice.js`
@@ -20,12 +32,18 @@ const Cart = () => {
   const removeItemFromCart = (id) => {
     dispatch(removeFromCart(id));
   };
+  console.log(cartItems)
 
-  const totalPrice = cartItems.reduce((acc, item) => {
-    return (
-      acc + parseInt(item.price.replace(/[^0-9]/g, ""), 10) * item.quantity
-    );
-  }, 0);
+  const totalPrice = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+
+  // const totalPrice = cartItems.reduce((acc, item) => {
+  //   return (
+  //     acc + parseInt(item.price.replace(/[^0-9]/g, ""), 10) * item.quantity
+  //   );
+  // }, 0);
   // console.log(cartItems)
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
@@ -52,7 +70,7 @@ const Cart = () => {
                 <div className="flex-1">
                   <h2 className="text-lg font-semibold">{item.name}</h2>
                   <p className="text-sm text-gray-600">
-                    ₹{item.price ? item.price.toLocaleString() : "0"}
+                    ₹{item.price }
                   </p>
                   <div className="flex items-center mt-2 space-x-2">
                     <button

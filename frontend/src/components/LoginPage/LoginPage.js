@@ -31,7 +31,7 @@ const LoginPage = () => {
       })
       .then((res) => {
         console.log(res);
-        navigate("/signup");
+        navigate("/profile");
       })
       .catch((err) => {
         console.log(err);
